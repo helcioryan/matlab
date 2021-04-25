@@ -1,19 +1,20 @@
-B = input("DIGITE O VALOR DE B:  ")
-t = input("DIGITE O VALOR DE t: ")
-e1 = input("DIGITE O VALOR DE e1: ")
-e2 = input("DIGITE O VALOR DE e2: ")
+%%%% Declarando Parâmetros da MAQUINA %%%%%
+B = input("DIGITE O VALOR DE B:  ")                    %BASE
+t = input("DIGITE O VALOR DE t: ")                     %QUANTIDADES DE DIGITOS NA MANTISSA
+e1 = input("DIGITE O VALOR DE e1: ")                   %LIMITE SUPERIOR DO EXPOENTE
+e2 = input("DIGITE O VALOR DE e2: ")                   %LIMITE SUPERIOR DO EXPOENTE
 c1 = 0
-
-dt = input("DIGITE A SUA DATA DE NASCIMENTO: ")
-ms = input("DIGITE MÊS DE NASCIMENTO: ")
-ch = input("DIGITE OS 2 ULTIMOS DIGITOS DA CHAMADA: ")
+%%%% CÁLCULO DAS VARIÁVEIS %%%%
+dt = input("DIGITE A SUA DATA DE NASCIMENTO: ")        %DIA DE NASCIMENTO
+ms = input("DIGITE MÊS DE NASCIMENTO: ")               %MÊS DE NASCIMENTO
+ch = input("DIGITE OS 2 ULTIMOS DIGITOS DA CHAMADA: ") %ULTIMOS 2 DIGITOS DA CHAMADA
 
 x = dt/1000
 y = ms/3546
 w = ch/2525
 z = 0.8987
 
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%OPERAÇÕES DE SOMA%%%%%%%%%%%%
 r1 = x + y
 a = fix(r1*10^t)/10^t
 q1 = round(r1-a)
@@ -43,6 +44,7 @@ if q3>=5/10^(t+1)
 else r3 = c
 end
 
+%%%% OBTENDO O EXPOENTE c %%%%
 while r3<=0.1 
     r3 = r3*10; 
     c1 = c1-1;
@@ -51,8 +53,10 @@ while r3>=1
     r3 = r3/10; 
     c1 = c1+1;
 end
+
 %%%VALOR VERDADEIRO%%%
 f = x+y+w+z
+
 %%%% ERROS %%%%
 Ea = f - r3
 Er = Ea/f

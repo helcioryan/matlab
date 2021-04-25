@@ -1,0 +1,74 @@
+B = input("DIGITE O VALOR DE B:  ")
+t = input("DIGITE O VALOR DE t: ")
+e1 = input("DIGITE O VALOR DE e1: ")
+e2 = input("DIGITE O VALOR DE e2: ")
+c1 = 0
+
+dt = input("DIGITE A SUA DATA DE NASCIMENTO: ")
+ms = input("DIGITE MÊS DE NASCIMENTO: ")
+ch = input("DIGITE OS 2 ULTIMOS DIGITOS DA CHAMADA: ")
+
+x = dt/1000
+y = ms/3546
+w = ch/2525
+z = 0.8987
+
+%%%%%%%%%%%%%%%%%%%%
+r1 = x + y
+a = fix(r1*10^t)/10^t
+q1 = round(r1-a)
+
+if q1>=5/10^(t+1)
+    r1 = a+1/(10)^t
+else r1 = a
+end
+
+%%%%%%%%%%%%%%%%%%%%%%
+r2 = r1 + w
+b = fix(r2*10^t)/10^t
+q2 = round(r2 - b)
+
+if q2>=5/10^(t+1)
+    r2 = b+(1/10^4)
+else r2 = b
+end
+
+%%%%%%%%%%%%%%%%%%%%%%
+r3 = r2+z
+c = fix(r3*10^t)/10^t
+q3 = round(r3 - c)
+
+if q3>=5/10^(t+1)
+    r3 = c+1/(10)^t
+else r3 = c
+end
+
+while r3<=0.1 
+    r3 = r3*10; 
+    c1 = c1-1;
+end
+while r3>=1 
+    r3 = r3/10; 
+    c1 = c1+1;
+end
+%%%VALOR VERDADEIRO%%%
+f = x+y+w+z
+%%%% ERROS %%%%
+Ea = f - r3
+Er = Ea/f
+
+%%%%%%MENSAGENS DE ERRO%%%%%%%%%%%%%
+if c1 < e1
+    fprintf("UNDERFLOW\n")
+end
+if c1 > e2
+    fprintf("OVERERFLOW\n")
+end
+
+
+
+fprintf("O VALOR VERDADEIRO: f = %.6f\n",f)
+fprintf("O RESULTADO DA SOMA É: ")
+fprintf("f = %.4f*10^%.f\n",r3,c1)
+fprintf("O ERRO ABSOLUTO: %.6f\n",Ea)
+fprintf("O ERRO RELATIVO: %.6f\n",Er)
